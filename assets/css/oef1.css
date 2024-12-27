@@ -1,0 +1,288 @@
+/*
+    naam:   Rayven Budé
+*/
+
+/*
+Hint: 
+    (1) Omzetten naar hoofdletters:
+            text-transform: uppercase;
+    (2) Schaduw in figcaption
+            text-shadow: 2px 2px 2px black;
+    (3) Eerste 3 lijnen tonen van de paragrafen
+            line-height:1em;
+	        height:3em;
+    (4) Herschaling van de figuren 
+            aspect-ratio: 400 / 225;
+            object-fit:cover;
+*/
+/* algemeen*/
+*{
+    box-sizing: border-box;
+}
+head,body{
+    width: 1200px;
+    margin: 60px auto;
+}
+main{
+    display: flex;
+    flex-wrap:wrap;
+}
+/*navigatie balk*/
+nav{
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    overflow: hidden;
+    border: orange 3px solid;
+    border-radius: 10px;
+    background-color: white;
+    width: 250px;
+    font-size:1.4em
+}
+nav img{
+    width: 20px;
+    margin-left: 10px;
+}
+nav a{
+    text-decoration: none;
+    color:black;
+}
+nav ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+nav li{
+    display:block;
+    padding:5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+nav li:hover{
+    background-color: rgba(255, 196, 112, 0.62);
+}
+.highlight{
+    background-color: orange;
+}
+.natuur{
+    color: white;
+    text-transform:uppercase;
+}
+nav span{
+    display:none;
+}
+nav input{
+    width:100px;
+    margin-left:5px;
+    margin-bottom:5px;
+    border-radius: 5px;
+}
+/*footer*/
+footer{
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    text-align: center;
+    color: white;
+    background-color: orange;
+    font-size: 20px;
+}
+/* header */
+header{
+    text-transform: uppercase;
+    border-bottom: 2px solid orange;
+}
+header h1{
+    font-size: 3em;
+}
+header h2{
+    border-left:10px solid orange;
+    padding-left: 0.5em;
+    font-size: 2em;
+}
+/*main*/
+    /* afbeelding */
+figure{
+    display:inline-block;
+    position : relative;
+}
+article img{
+     border-radius: 8px;
+ }
+figcaption{
+    color: white;
+    text-shadow: 2px 2px 2px black;
+    position:absolute;
+    bottom: 10px;
+    right: 10px;
+}
+.center img,.flex-width-40 img{
+     aspect-ratio: 400 / 225;
+     object-fit: cover;
+ }
+/*tekst*/
+.flex-width-40 p,.center p{
+    line-height:1em;
+    height:3em;
+    overflow: hidden;
+}
+article h3{
+     font-size: 23px;
+ }
+article p{
+    font-size: 20px;
+}
+/* artikels */
+.flex-width-60{
+    flex-basis:60%;
+}
+.flex-width-60 figure{
+    width:40%;
+    float:left;
+    margin-right:20px;
+}
+.flex-width-60 p{
+    margin-right:20px;
+}
+.flex-width-40{
+    flex-basis:40%;
+}
+main div article{
+    margin-bottom: 50px;
+}
+main div article img,.flex-width-33 figure{
+    width:100%;
+}
+main div article figure {
+    margin: 0;
+    padding: 0;
+}
+.flex-width-33{
+    flex-basis: 33.33%;
+    width : 33.33%;
+    padding-left:20px
+}
+.center{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+@media screen and (max-width:1600px){
+    /*algemeen*/
+    head,body{
+        width: 80%;
+        margin: 60px auto;
+    }
+    body{
+        margin-top:0;
+    }
+    /*footer*/
+    footer{
+        display:none;
+    }
+    /*navigatie*/
+    nav {
+        position: static;
+        border:none;
+        top:0;
+        left:0;
+        width:100%;
+        background-color: white;
+        border-radius: 0;
+    }
+    nav img{
+        display:none;
+    }
+    nav span{
+        display:inline;
+    }
+    ul{
+        display:flex;
+    }
+    li{
+        display:inline-block;
+        margin-right:10px;
+    }
+}
+
+@media screen and (max-width:1200px){
+    /*header*/
+    header{
+        display: none;
+    }
+    /*navigatie*/
+    nav input{
+        display: none;
+    }
+    ul{
+        display:inline;
+        text-align: center;
+    }
+    nav{
+        border-bottom: 2px solid orange;
+    }
+    /*artikels*/
+    figcaption{
+         display:none;
+     }
+    .flex-width-60 p {
+         line-height: 1em;
+         height:3em;
+         overflow: hidden;
+     }
+    .flex-width-60 img{
+        aspect-ratio: 400 / 225;
+        object-fit:cover;
+    }
+    .flex-width-60 figure{
+        float:none;
+        width:100%;
+    }
+    .flex-width-60{
+        flex-basis:33.33%;
+    }
+    .flex-width-40{
+        display:flex;
+        flex-basis:66.66%;
+        flex-direction: row;
+    }
+    .flex-width-40 article {
+        flex-basis: 50%;
+        padding-left:15px;
+    }
+    .flex-width-33,.flex-width-60{
+        padding-left:15px;
+    }
+}
+
+@media screen and (max-width:900px){
+    /*algemeen*/
+    head,body,main {
+        width: 100%;
+    }
+    main {
+        display: flex;
+    }
+    /*artikels*/
+    article {
+        flex-basis:100%;
+        position: relative;
+    }
+    p{
+        display: none;
+    }
+    .flex-width-60,.flex-width-33,.flex-width-40{
+        flex-basis:100%;
+        padding-left:0;
+    }
+    .flex-width-40{
+        flex-direction: column;
+    }
+    .flex-width-40 article{
+        padding-left: 0;
+    }
+}
+
+
+
